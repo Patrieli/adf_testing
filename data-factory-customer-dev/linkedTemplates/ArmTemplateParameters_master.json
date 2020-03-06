@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "data-factory-customer-dev"
+		},
+		"devblobstorage_connectionString": {
+			"value": ""
+		},
+		"dev key vault_properties_typeProperties_baseUrl": {
+			"value": "https://devkeyvaultps.vault.azure.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
