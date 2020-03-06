@@ -1,0 +1,22 @@
+{
+	"name": "devfile_copy",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "devblobstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "copy",
+				"container": "devenvcontainerps"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
