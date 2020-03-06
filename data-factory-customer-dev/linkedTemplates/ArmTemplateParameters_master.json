@@ -8,7 +8,7 @@
 		"devblobstorage_connectionString": {
 			"value": ""
 		},
-		"dev key vault_properties_typeProperties_baseUrl": {
+		"azurekeyvault_properties_typeProperties_baseUrl": {
 			"value": "https://devkeyvaultps.vault.azure.net/"
 		},
 		"containerUri": {

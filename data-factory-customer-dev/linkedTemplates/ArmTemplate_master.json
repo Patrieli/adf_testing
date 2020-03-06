@@ -11,7 +11,7 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'devblobstorage'"
 		},
-		"dev key vault_properties_typeProperties_baseUrl": {
+		"azurekeyvault_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://devkeyvaultps.vault.azure.net/"
 		},
@@ -45,8 +45,8 @@
 					"devblobstorage_connectionString": {
 						"value": "[parameters('devblobstorage_connectionString')]"
 					},
-					"dev key vault_properties_typeProperties_baseUrl": {
-						"value": "[parameters('dev key vault_properties_typeProperties_baseUrl')]"
+					"azurekeyvault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('azurekeyvault_properties_typeProperties_baseUrl')]"
 					}
 				}
 			},
