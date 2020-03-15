@@ -42,13 +42,22 @@
 				"inputs": [
 					{
 						"referenceName": "DelimitedText1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"fileName": "devfile.csv"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "devfile_copy",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"copiedFile": {
+								"value": "@concat('devfile-',utcnow(),'.csv')",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}

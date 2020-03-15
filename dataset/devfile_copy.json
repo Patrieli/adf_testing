@@ -5,6 +5,11 @@
 			"referenceName": "devblobstorage",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"copiedFile": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
