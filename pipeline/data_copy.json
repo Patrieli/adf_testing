@@ -44,7 +44,10 @@
 						"referenceName": "DelimitedText1",
 						"type": "DatasetReference",
 						"parameters": {
-							"fileName": "devfile.csv"
+							"fileName": {
+								"value": "@pipeline().parameters.fileName",
+								"type": "Expression"
+							}
 						}
 					}
 				],
@@ -54,7 +57,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"copiedFile": {
-								"value": "@concat('devfile-',utcnow(),'.csv')",
+								"value": "@concat(pipeline().parameters.copiedFile,'-',utcnow(),'.csv')",
 								"type": "Expression"
 							}
 						}
@@ -62,6 +65,14 @@
 				]
 			}
 		],
+		"parameters": {
+			"fileName": {
+				"type": "string"
+			},
+			"copiedFile": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
