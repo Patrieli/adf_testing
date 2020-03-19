@@ -55,12 +55,20 @@
 					"referenceName": "devblobstorage",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"fileName": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "devfile.csv",
+						"fileName": {
+							"value": "@dataset().fileName",
+							"type": "Expression"
+						},
 						"container": "devenvcontainerps"
 					},
 					"columnDelimiter": ",",
@@ -122,6 +130,11 @@
 				"linkedServiceName": {
 					"referenceName": "devblobstorage",
 					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"copiedFile": {
+						"type": "string"
+					}
 				},
 				"annotations": [],
 				"type": "DelimitedText",
@@ -188,18 +201,52 @@
 							{
 								"referenceName": "DelimitedText1",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"fileName": {
+										"value": "@pipeline().parameters.fileName",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "devfile_copy",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"copiedFile": {
+										"value": "@concat(pipeline().parameters.copiedFile,'-',utcnow(),'.csv')",
+										"type": "Expression"
+									}
+								}
 							}
 						]
+					},
+					{
+						"name": "Wait1",
+						"type": "Wait",
+						"dependsOn": [
+							{
+								"activity": "Copy data1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"waitTimeInSeconds": 1
+						}
 					}
 				],
+				"parameters": {
+					"fileName": {
+						"type": "string"
+					},
+					"copiedFile": {
+						"type": "string"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
